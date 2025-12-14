@@ -48,14 +48,7 @@ const navConfig: NavItem[] = [
       { title: "Calendar Tools", href: "/integrations/calendar" },
     ],
   },
-  {
-    title: "Agency Features",
-    items: [
-      { title: "Branding & Domain", href: "/agency/branding" },
-      { title: "Sub-accounts", href: "/agency/sub-accounts" },
-      { title: "Rebilling", href: "/agency/rebilling" },
-    ],
-  },
+
   {
     title: "API Reference",
     href: "/api-reference",

@@ -66,17 +66,7 @@ export default function Home() {
             </CardHeader>
           </Card>
         </Link>
-        <Link href="/agency/branding">
-          <Card className="h-full transition-colors hover:bg-muted/50 cursor-pointer border-muted-foreground/20">
-            <CardHeader>
-              <Settings className="h-8 w-8 text-primary mb-2" />
-              <CardTitle>Agency Settings</CardTitle>
-              <CardDescription>
-                Manage your white-label settings, custom domains, and sub-accounts.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+
         <Link href="/api-reference">
           <Card className="h-full transition-colors hover:bg-muted/50 cursor-pointer border-muted-foreground/20">
             <CardHeader>
@@ -117,10 +107,7 @@ export default function Home() {
             <span className="font-semibold group-hover:text-primary">Phone Numbers</span>
             <span className="text-sm text-muted-foreground">Buy and configure phone numbers for agents.</span>
           </Link>
-          <Link href="/agency/sub-accounts" className="group flex flex-col gap-2 rounded-lg border p-4 hover:bg-muted/50 transition-colors">
-            <span className="font-semibold group-hover:text-primary">Sub-accounts</span>
-            <span className="text-sm text-muted-foreground">Manage client accounts and permissions.</span>
-          </Link>
+
         </div>
       </section>
     </div>

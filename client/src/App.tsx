@@ -10,8 +10,26 @@ import Home from "./pages/Home";
 // Documentation Pages
 import QuickStart from "./pages/docs/QuickStart";
 import ApiReference from "./pages/docs/ApiReference";
+import PlatformOverview from "./pages/docs/PlatformOverview";
+
+// Voice Agents
 import VoiceAgentBuild from "./pages/docs/VoiceAgentBuild";
-import AgencyBranding from "./pages/docs/AgencyBranding";
+import VoiceSettings from "./pages/docs/VoiceSettings";
+import PhoneNumbers from "./pages/docs/PhoneNumbers";
+
+// Chat Agents
+import ChatAgentBuild from "./pages/docs/ChatAgentBuild";
+import WidgetCustomization from "./pages/docs/WidgetCustomization";
+import DeployToWebsite from "./pages/docs/DeployToWebsite";
+
+// Integrations
+import TwilioSetup from "./pages/docs/TwilioSetup";
+import GHLSetup from "./pages/docs/GHLSetup";
+import WhatsAppSetup from "./pages/docs/WhatsAppSetup";
+import CalendarSetup from "./pages/docs/CalendarSetup";
+
+// Agency Features (Removed as per request, but keeping file for reference if needed later)
+// import AgencyBranding from "./pages/docs/AgencyBranding";
 
 function Router() {
   return (
@@ -21,12 +39,23 @@ function Router() {
         
         {/* Getting Started */}
         <Route path="/quick-start" component={QuickStart} />
+        <Route path="/overview" component={PlatformOverview} />
         
         {/* Voice Agents */}
         <Route path="/voice-agent/build" component={VoiceAgentBuild} />
+        <Route path="/voice-agent/settings" component={VoiceSettings} />
+        <Route path="/voice-agent/phone-numbers" component={PhoneNumbers} />
         
-        {/* Agency Features */}
-        <Route path="/agency/branding" component={AgencyBranding} />
+        {/* Chat Agents */}
+        <Route path="/chat-agent/build" component={ChatAgentBuild} />
+        <Route path="/chat-agent/widget" component={WidgetCustomization} />
+        <Route path="/chat-agent/deploy" component={DeployToWebsite} />
+        
+        {/* Integrations */}
+        <Route path="/integrations/twilio" component={TwilioSetup} />
+        <Route path="/integrations/ghl" component={GHLSetup} />
+        <Route path="/integrations/whatsapp" component={WhatsAppSetup} />
+        <Route path="/integrations/calendar" component={CalendarSetup} />
         
         {/* API Reference */}
         <Route path="/api-reference" component={ApiReference} />
