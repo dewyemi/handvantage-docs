@@ -35,11 +35,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
-            <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center p-8 bg-background/50 backdrop-blur-xl rounded-3xl border border-border/50 shadow-2xl">
+            <div className="relative w-full max-w-[500px] aspect-[4/3] flex items-center justify-center overflow-hidden rounded-3xl border border-border/50 shadow-2xl bg-background/50 backdrop-blur-xl">
               <img 
-                src="/logo-full.png" 
-                alt="Handvantage Platform" 
-                className="w-full h-auto object-contain drop-shadow-xl"
+                src="/hero-illustration.png" 
+                alt="Handvantage AI Platform - Voice, Chat, and Integrations" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute -z-10 inset-0 bg-primary/20 blur-[100px] rounded-full opacity-50"></div>
             </div>
