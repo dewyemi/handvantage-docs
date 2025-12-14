@@ -3,33 +3,45 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Layout from "./components/Layout";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
+// Documentation Pages
+import QuickStart from "./pages/docs/QuickStart";
+import ApiReference from "./pages/docs/ApiReference";
+import VoiceAgentBuild from "./pages/docs/VoiceAgentBuild";
+import AgencyBranding from "./pages/docs/AgencyBranding";
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path="/" component={Home} />
+        
+        {/* Getting Started */}
+        <Route path="/quick-start" component={QuickStart} />
+        
+        {/* Voice Agents */}
+        <Route path="/voice-agent/build" component={VoiceAgentBuild} />
+        
+        {/* Agency Features */}
+        <Route path="/agency/branding" component={AgencyBranding} />
+        
+        {/* API Reference */}
+        <Route path="/api-reference" component={ApiReference} />
+        
+        {/* Fallback for pages not yet implemented - redirect to Home or show 404 */}
+        <Route path="/:rest*" component={NotFound} />
+      </Switch>
+    </Layout>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light" storageKey="handvantage-docs-theme">
         <TooltipProvider>
           <Toaster />
           <Router />
