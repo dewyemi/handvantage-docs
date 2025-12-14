@@ -74,23 +74,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-2 md:hidden">
               <MobileNav />
             </div>
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <span className="hidden font-bold tracking-tight sm:inline-block">
-                Handvantage Docs
+            <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
+              <img src="/logo-icon.png" alt="Handvantage Logo" className="h-8 w-8 object-contain" />
+              <span className="hidden font-bold tracking-tight sm:inline-block text-lg">
+                Handvantage <span className="text-muted-foreground font-normal">Docs</span>
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
@@ -133,23 +120,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <div className="container flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
         {/* Sidebar Navigation */}
-        <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
-          <ScrollArea className="h-full py-6 pr-6 lg:py-8">
-            <div className="w-full">
+        <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block border-r border-border/40 bg-background/50 backdrop-blur-sm">
+          <ScrollArea className="h-full py-6 pr-6 lg:py-8 pl-4">
+            <div className="w-full space-y-6">
               {navConfig.map((section, index) => (
-                <div key={index} className="pb-4">
-                  <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold text-foreground">
+                <div key={index}>
+                  <h4 className="mb-2 rounded-md px-2 py-1 text-sm font-bold text-foreground/90 uppercase tracking-wider text-[11px]">
                     {section.title}
                   </h4>
                   {section.items?.length && (
-                    <div className="grid grid-flow-row auto-rows-max text-sm">
+                    <div className="grid grid-flow-row auto-rows-max text-sm gap-1">
                       {section.items.map((item, itemIndex) => (
                         <Link
                           key={itemIndex}
                           href={item.href || "#"}
                           className={cn(
-                            "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline text-muted-foreground hover:text-foreground",
-                            location === item.href && "font-medium text-primary hover:text-primary"
+                            "group flex w-full items-center rounded-md px-2 py-2 transition-all duration-200",
+                            "hover:bg-muted/80 hover:text-foreground",
+                            location === item.href 
+                              ? "bg-primary/10 text-primary font-medium shadow-sm" 
+                              : "text-muted-foreground"
                           )}
                         >
                           {item.title}
