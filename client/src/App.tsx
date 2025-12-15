@@ -8,6 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Guides from "./pages/Guides";
 import LandingPage from "./pages/LandingPage";
+import MarketingAssets from "./pages/MarketingAssets";
 
 // Documentation Pages
 import QuickStart from "./pages/docs/QuickStart";
@@ -39,6 +40,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/landing" component={LandingPage} />
+        <Route path="/marketing-assets" component={MarketingAssets} />
         <Route path="/guides" component={Guides} />
         
         {/* Getting Started */}

@@ -19,6 +19,8 @@ const navConfig: NavItem[] = [
     title: "Getting Started",
     items: [
       { title: "Introduction", href: "/" },
+      { title: "Landing Page (New)", href: "/landing" },
+      { title: "Marketing Assets", href: "/marketing-assets" },
       { title: "Quick Start Guide", href: "/quick-start" },
       { title: "Platform Overview", href: "/overview" },
     ],
