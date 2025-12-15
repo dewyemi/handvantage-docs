@@ -33,8 +33,8 @@ import CalendarSetup from "./pages/docs/CalendarSetup";
 
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Layout>
       <Switch>

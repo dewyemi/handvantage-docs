@@ -1,9 +1,14 @@
 import { Link } from "wouter";
+import { useAuth } from "@/_core/hooks/useAuth";
 import { ArrowRight, Book, Code, MessageSquare, Phone, Settings, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <div className="space-y-10 pb-10">
       {/* Hero Section */}
