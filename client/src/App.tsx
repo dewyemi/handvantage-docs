@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Guides from "./pages/Guides";
+import LandingPage from "./pages/LandingPage";
 
 // Documentation Pages
 import QuickStart from "./pages/docs/QuickStart";
@@ -37,6 +38,7 @@ function Router() {
     <Layout>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/landing" component={LandingPage} />
         <Route path="/guides" component={Guides} />
         
         {/* Getting Started */}
