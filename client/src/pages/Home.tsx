@@ -126,7 +126,7 @@ export default function Home() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight">Popular Topics</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Link href="/voice-agent/pricing" className="group flex flex-col gap-2 rounded-lg border p-4 hover:bg-muted/50 transition-colors">
+          <Link href="/billing/pay-as-you-go" className="group flex flex-col gap-2 rounded-lg border p-4 hover:bg-muted/50 transition-colors">
             <span className="font-semibold group-hover:text-primary">Pricing & Billing</span>
             <span className="text-sm text-muted-foreground">Understand wallet consumption and rates.</span>
           </Link>
