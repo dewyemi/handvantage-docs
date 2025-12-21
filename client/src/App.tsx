@@ -31,6 +31,15 @@ import GHLSetup from "./pages/docs/GHLSetup";
 import WhatsAppSetup from "./pages/docs/WhatsAppSetup";
 import CalendarSetup from "./pages/docs/CalendarSetup";
 
+// Billing & Guides
+import BillingPayAsYouGo from "./pages/docs/BillingPayAsYouGo";
+import DataSources from "./pages/docs/DataSources";
+
+// Call Widgets
+import PlivoSetup from "./pages/docs/PlivoSetup";
+import TelnyxSetup from "./pages/docs/TelnyxSetup";
+import SIPConfiguration from "./pages/docs/SIPConfiguration";
+
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
 function Router() {
@@ -56,6 +65,15 @@ function Router() {
         <Route path="/chat-agent/build" component={ChatAgentBuild} />
         <Route path="/chat-agent/widget" component={WidgetCustomization} />
         <Route path="/chat-agent/deploy" component={DeployToWebsite} />
+        
+        {/* Billing & Guides */}
+        <Route path="/billing/pay-as-you-go" component={BillingPayAsYouGo} />
+        <Route path="/guides/data-sources" component={DataSources} />
+        
+        {/* Call Widgets */}
+        <Route path="/call-widgets/plivo" component={PlivoSetup} />
+        <Route path="/call-widgets/telnyx" component={TelnyxSetup} />
+        <Route path="/call-widgets/sip" component={SIPConfiguration} />
         
         {/* Integrations */}
         <Route path="/integrations/twilio" component={TwilioSetup} />
