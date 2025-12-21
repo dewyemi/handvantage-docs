@@ -44,9 +44,10 @@ import SIPConfiguration from "./pages/docs/SIPConfiguration";
 import MessengerWidget from "./pages/docs/MessengerWidget";
 import InstagramWidget from "./pages/docs/InstagramWidget";
 import SMSWidget from "./pages/docs/SMSWidget";
-
-// Tools
 import CustomTool from "./pages/docs/CustomTool";
+import Webhooks from "./pages/docs/Webhooks";
+import Intents from "./pages/docs/Intents";
+import Campaigns from "./pages/docs/Campaigns";
 
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
@@ -90,6 +91,11 @@ function Router() {
         
         {/* Tools */}
         <Route path="/tools/custom-tool" component={CustomTool} />
+        
+        {/* Features */}
+        <Route path="/features/webhooks" component={Webhooks} />
+        <Route path="/features/intents" component={Intents} />
+        <Route path="/features/campaigns" component={Campaigns} />
         
         {/* Integrations */}
         <Route path="/integrations/twilio" component={TwilioSetup} />

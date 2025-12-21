@@ -25,9 +25,9 @@
 - [x] Instagram Widget
 - [x] SMS Widget
 - [x] Custom Tool
-- [ ] Webhooks
-- [ ] Intents
-- [ ] Campaigns
+- [x] Webhooks
+- [x] Intents
+- [x] Campaigns
 
 ### PHASE 2 - Secondary Sections (Later)
 - [ ] Add-Ons
@@ -52,9 +52,9 @@
 ### Add Features (8 pages)
 - [ ] Handvantage Forms
 - [ ] Advance GHL Features
-- [ ] Intents
-- [ ] Webhooks
-- [ ] Campaigns
+- [x] Intents
+- [x] Webhooks
+- [x] Campaigns
 - [ ] Disconnect and Call Transfer Tool
 - [ ] Convo Bridge
 - [ ] Consent Form
