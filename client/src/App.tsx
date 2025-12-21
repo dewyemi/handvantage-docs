@@ -45,6 +45,9 @@ import MessengerWidget from "./pages/docs/MessengerWidget";
 import InstagramWidget from "./pages/docs/InstagramWidget";
 import SMSWidget from "./pages/docs/SMSWidget";
 
+// Tools
+import CustomTool from "./pages/docs/CustomTool";
+
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
 function Router() {
@@ -84,6 +87,9 @@ function Router() {
         <Route path="/chat-widgets/messenger" component={MessengerWidget} />
         <Route path="/chat-widgets/instagram" component={InstagramWidget} />
         <Route path="/chat-widgets/sms" component={SMSWidget} />
+        
+        {/* Tools */}
+        <Route path="/tools/custom-tool" component={CustomTool} />
         
         {/* Integrations */}
         <Route path="/integrations/twilio" component={TwilioSetup} />

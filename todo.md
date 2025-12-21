@@ -24,7 +24,7 @@
 - [x] Messenger Widget
 - [x] Instagram Widget
 - [x] SMS Widget
-- [ ] Custom Tool
+- [x] Custom Tool
 - [ ] Webhooks
 - [ ] Intents
 - [ ] Campaigns
@@ -41,7 +41,7 @@
 - [ ] Freshdesk Tool
 - [ ] GHL Calendar Tool
 - [ ] SMS Tool
-- [ ] Custom Tool
+- [x] Custom Tool
 - [ ] Zoho Calendar Tool
 - [ ] MCP Server Tool
 - [ ] Paypal Tool
