@@ -95,11 +95,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [sidebarSearch, setSidebarSearch] = useState("");
 
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  // Filter navigation based on search
+  const filteredNavConfig = navConfig.map(section => {
+    if (!sidebarSearch) return section;
+    
+    const filteredItems = section.items?.filter(item =>
+      item.title.toLowerCase().includes(sidebarSearch.toLowerCase())
+    );
+    
+    return {
+      ...section,
+      items: filteredItems,
+    };
+  }).filter(section => section.items === undefined || (section.items && section.items.length > 0));
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/10 selection:text-primary">
@@ -158,8 +173,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Sidebar Navigation */}
         <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block border-r border-border/40 bg-background/50 backdrop-blur-sm">
           <ScrollArea className="h-full py-6 pr-6 lg:py-8 pl-4">
-            <div className="w-full space-y-6">
-              {navConfig.map((section, index) => (
+            <div className="w-full space-y-4">
+              {/* Sidebar Search */}
+              <div className="relative px-2">
+                <Search className="absolute left-4 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search docs..."
+                  value={sidebarSearch}
+                  onChange={(e) => setSidebarSearch(e.target.value)}
+                  className="pl-8 h-9 bg-muted/50 border-muted-foreground/20 focus-visible:bg-background"
+                />
+                {sidebarSearch && (
+                  <button
+                    onClick={() => setSidebarSearch("")}
+                    className="absolute right-4 top-2.5 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+              
+              {/* Navigation Sections */}
+              {filteredNavConfig.length === 0 && sidebarSearch && (
+                <div className="px-2 py-4 text-sm text-muted-foreground text-center">
+                  No results found for "{sidebarSearch}"
+                </div>
+              )}
+              {filteredNavConfig.map((section, index) => (
                 <div key={index}>
                   <h4 className="mb-2 rounded-md px-2 py-1 text-sm font-bold text-foreground/90 uppercase tracking-wider text-[11px]">
                     {section.title}
@@ -231,6 +271,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 function MobileNav() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
+  const [mobileSearch, setMobileSearch] = useState("");
+
+  // Filter navigation based on mobile search
+  const filteredMobileNav = navConfig.map(section => {
+    if (!mobileSearch) return section;
+    
+    const filteredItems = section.items?.filter(item =>
+      item.title.toLowerCase().includes(mobileSearch.toLowerCase())
+    );
+    
+    return {
+      ...section,
+      items: filteredItems,
+    };
+  }).filter(section => section.items === undefined || (section.items && section.items.length > 0));
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -249,9 +304,33 @@ function MobileNav() {
             <span className="font-bold">Handvantage Docs</span>
           </Link>
         </div>
-        <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+        <div className="px-7 pt-4">
+          <div className="relative">
+            <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search docs..."
+              value={mobileSearch}
+              onChange={(e) => setMobileSearch(e.target.value)}
+              className="pl-8 h-9 bg-muted/50 border-muted-foreground/20"
+            />
+            {mobileSearch && (
+              <button
+                onClick={() => setMobileSearch("")}
+                className="absolute right-2 top-2.5 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+        </div>
+        <ScrollArea className="my-4 h-[calc(100vh-12rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
-            {navConfig.map((section, index) => (
+            {filteredMobileNav.length === 0 && mobileSearch && (
+              <div className="px-7 py-4 text-sm text-muted-foreground text-center">
+                No results found
+              </div>
+            )}
+            {filteredMobileNav.map((section, index) => (
               <div key={index} className="pt-4">
                 <h4 className="font-medium mb-2 text-foreground">{section.title}</h4>
                 {section.items?.map((item, itemIndex) => (
