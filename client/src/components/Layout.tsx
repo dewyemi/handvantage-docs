@@ -19,16 +19,14 @@ const navConfig: NavItem[] = [
     title: "Getting Started",
     items: [
       { title: "Introduction", href: "/" },
-      { title: "Landing Page (New)", href: "/landing" },
-      { title: "Marketing Assets", href: "/marketing-assets" },
-      { title: "Quick Start Guide", href: "/quick-start" },
       { title: "Platform Overview", href: "/overview" },
+      { title: "Quick Start Guide", href: "/quick-start" },
     ],
   },
   {
     title: "Voice Agents",
     items: [
-      { title: "Build First Voice Agent", href: "/voice-agent/build" },
+      { title: "Build Voice Agent", href: "/voice-agent/build" },
       { title: "Voice Settings", href: "/voice-agent/settings" },
       { title: "Phone Numbers", href: "/voice-agent/phone-numbers" },
     ],
@@ -36,21 +34,57 @@ const navConfig: NavItem[] = [
   {
     title: "Chat Agents",
     items: [
-      { title: "Build First Chat Agent", href: "/chat-agent/build" },
+      { title: "Build Chat Agent", href: "/chat-agent/build" },
       { title: "Widget Customization", href: "/chat-agent/widget" },
       { title: "Deploy to Website", href: "/chat-agent/deploy" },
+    ],
+  },
+  {
+    title: "Billing & Guides",
+    items: [
+      { title: "Pay As You Go", href: "/billing/pay-as-you-go" },
+      { title: "Data Sources", href: "/guides/data-sources" },
+    ],
+  },
+  {
+    title: "Call Widgets",
+    items: [
+      { title: "Plivo Setup", href: "/call-widgets/plivo" },
+      { title: "Telnyx Setup", href: "/call-widgets/telnyx" },
+      { title: "SIP Configuration", href: "/call-widgets/sip" },
+    ],
+  },
+  {
+    title: "Chat Widgets",
+    items: [
+      { title: "Messenger Widget", href: "/chat-widgets/messenger" },
+      { title: "Instagram Widget", href: "/chat-widgets/instagram" },
+      { title: "SMS Widget", href: "/chat-widgets/sms" },
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      { title: "Custom Tool", href: "/tools/custom-tool" },
+    ],
+  },
+  {
+    title: "Features",
+    items: [
+      { title: "Webhooks", href: "/features/webhooks" },
+      { title: "Intents", href: "/features/intents" },
+      { title: "Campaigns", href: "/features/campaigns" },
     ],
   },
   {
     title: "Integrations",
     items: [
       { title: "Twilio Setup", href: "/integrations/twilio" },
-      { title: "GoHighLevel (GHL)", href: "/integrations/ghl" },
+      { title: "GoHighLevel", href: "/integrations/ghl" },
       { title: "WhatsApp", href: "/integrations/whatsapp" },
       { title: "Calendar Tools", href: "/integrations/calendar" },
     ],
   },
-
   {
     title: "API Reference",
     href: "/api-reference",

@@ -65,3 +65,13 @@
 - [ ] Ensure consistent branding (Handvantage not Insighto)
 - [ ] Commit and push to GitHub
 - [ ] Deliver knowledgebase and updated docs to user
+
+
+## Navigation Sidebar
+- [x] Create Sidebar component with collapsible sections
+- [x] Organize pages into logical categories (Getting Started, Call Widgets, Chat Widgets, Tools, Features, etc.)
+- [x] Add active state highlighting for current page
+- [x] Make sidebar responsive (collapsible on mobile)
+- [x] Integrate sidebar into documentation layout
+- [x] Test navigation on all pages (verified Webhooks page loads correctly)
+- [ ] Save checkpoint
