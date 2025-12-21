@@ -23,7 +23,7 @@
 - [x] SIP Configuration Guide
 - [x] Messenger Widget
 - [x] Instagram Widget
-- [ ] SMS Widget
+- [x] SMS Widget
 - [ ] Custom Tool
 - [ ] Webhooks
 - [ ] Intents

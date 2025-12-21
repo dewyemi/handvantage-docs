@@ -43,6 +43,7 @@ import SIPConfiguration from "./pages/docs/SIPConfiguration";
 // Chat Widgets
 import MessengerWidget from "./pages/docs/MessengerWidget";
 import InstagramWidget from "./pages/docs/InstagramWidget";
+import SMSWidget from "./pages/docs/SMSWidget";
 
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
@@ -82,6 +83,7 @@ function Router() {
         {/* Chat Widgets */}
         <Route path="/chat-widgets/messenger" component={MessengerWidget} />
         <Route path="/chat-widgets/instagram" component={InstagramWidget} />
+        <Route path="/chat-widgets/sms" component={SMSWidget} />
         
         {/* Integrations */}
         <Route path="/integrations/twilio" component={TwilioSetup} />
