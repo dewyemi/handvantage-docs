@@ -40,6 +40,10 @@ import PlivoSetup from "./pages/docs/PlivoSetup";
 import TelnyxSetup from "./pages/docs/TelnyxSetup";
 import SIPConfiguration from "./pages/docs/SIPConfiguration";
 
+// Chat Widgets
+import MessengerWidget from "./pages/docs/MessengerWidget";
+import InstagramWidget from "./pages/docs/InstagramWidget";
+
 // Agency Features (Removed as per request, but keeping file for reference if needed later)
 // import AgencyBranding from "./pages/docs/AgencyBranding";
 function Router() {
@@ -74,6 +78,10 @@ function Router() {
         <Route path="/call-widgets/plivo" component={PlivoSetup} />
         <Route path="/call-widgets/telnyx" component={TelnyxSetup} />
         <Route path="/call-widgets/sip" component={SIPConfiguration} />
+        
+        {/* Chat Widgets */}
+        <Route path="/chat-widgets/messenger" component={MessengerWidget} />
+        <Route path="/chat-widgets/instagram" component={InstagramWidget} />
         
         {/* Integrations */}
         <Route path="/integrations/twilio" component={TwilioSetup} />

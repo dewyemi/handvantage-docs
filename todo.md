@@ -21,8 +21,8 @@
 - [x] Plivo Set Up For Voice AI
 - [x] Telnyx Set Up For Voice AI
 - [x] SIP Configuration Guide
-- [ ] Messenger Widget
-- [ ] Instagram Widget
+- [x] Messenger Widget
+- [x] Instagram Widget
 - [ ] SMS Widget
 - [ ] Custom Tool
 - [ ] Webhooks
