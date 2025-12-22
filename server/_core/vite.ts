@@ -8,6 +8,7 @@ import viteConfig from "../../vite.config";
 
 // Valid routes defined in the client-side router (App.tsx)
 // This list should be kept in sync with client/src/App.tsx
+// When adding or removing routes in App.tsx, update this list accordingly
 const VALID_ROUTES = [
   "/",
   "/landing",
@@ -41,14 +42,18 @@ const VALID_ROUTES = [
 ];
 
 /**
+ * Normalize a URL by removing query string and hash fragment
+ */
+function normalizeUrl(url: string): string {
+  return url.split("?")[0].split("#")[0];
+}
+
+/**
  * Check if a given path matches any valid route
  * Returns true for valid routes, false for 404 routes
  */
 function isValidRoute(pathname: string): boolean {
-  // Remove query string and hash
-  const cleanPath = pathname.split("?")[0].split("#")[0];
-  
-  // Check if it's an exact match with any valid route
+  const cleanPath = normalizeUrl(pathname);
   return VALID_ROUTES.includes(cleanPath);
 }
 
@@ -87,9 +92,7 @@ export async function setupVite(app: Express, server: Server) {
       const page = await vite.transformIndexHtml(url, template);
       
       // Check if the route is valid and set appropriate status code
-      // Use originalUrl instead of req.path to get the actual requested path
-      const requestPath = req.originalUrl.split("?")[0].split("#")[0];
-      const statusCode = isValidRoute(requestPath) ? 200 : 404;
+      const statusCode = isValidRoute(req.originalUrl) ? 200 : 404;
       res.status(statusCode).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
@@ -114,9 +117,7 @@ export function serveStatic(app: Express) {
   // fall through to index.html if the file doesn't exist
   app.use("*", (req, res) => {
     // Check if the route is valid and set appropriate status code
-    // Use originalUrl to get the actual requested path
-    const requestPath = req.originalUrl.split("?")[0].split("#")[0];
-    const statusCode = isValidRoute(requestPath) ? 200 : 404;
+    const statusCode = isValidRoute(req.originalUrl) ? 200 : 404;
     res.status(statusCode).sendFile(path.resolve(distPath, "index.html"));
   });
 }
