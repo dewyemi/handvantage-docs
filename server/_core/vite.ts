@@ -6,57 +6,6 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
 
-// Valid routes defined in the client-side router (App.tsx)
-// This list should be kept in sync with client/src/App.tsx
-// When adding or removing routes in App.tsx, update this list accordingly
-const VALID_ROUTES = [
-  "/",
-  "/landing",
-  "/marketing-assets",
-  "/guides",
-  "/quick-start",
-  "/overview",
-  "/voice-agent/build",
-  "/voice-agent/settings",
-  "/voice-agent/phone-numbers",
-  "/chat-agent/build",
-  "/chat-agent/widget",
-  "/chat-agent/deploy",
-  "/billing/pay-as-you-go",
-  "/guides/data-sources",
-  "/call-widgets/plivo",
-  "/call-widgets/telnyx",
-  "/call-widgets/sip",
-  "/chat-widgets/messenger",
-  "/chat-widgets/instagram",
-  "/chat-widgets/sms",
-  "/tools/custom-tool",
-  "/features/webhooks",
-  "/features/intents",
-  "/features/campaigns",
-  "/integrations/twilio",
-  "/integrations/ghl",
-  "/integrations/whatsapp",
-  "/integrations/calendar",
-  "/api-reference",
-];
-
-/**
- * Normalize a URL by removing query string and hash fragment
- */
-function normalizeUrl(url: string): string {
-  return url.split("?")[0].split("#")[0];
-}
-
-/**
- * Check if a given path matches any valid route
- * Returns true for valid routes, false for 404 routes
- */
-function isValidRoute(pathname: string): boolean {
-  const cleanPath = normalizeUrl(pathname);
-  return VALID_ROUTES.includes(cleanPath);
-}
-
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
@@ -91,9 +40,8 @@ export async function setupVite(app: Express, server: Server) {
       );
       const page = await vite.transformIndexHtml(url, template);
       
-      // Check if the route is valid and set appropriate status code
-      const statusCode = isValidRoute(req.originalUrl) ? 200 : 404;
-      res.status(statusCode).set({ "Content-Type": "text/html" }).end(page);
+      // Always return 200 status for SPA - let client-side router handle route validation
+      res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
       next(e);
@@ -115,9 +63,8 @@ export function serveStatic(app: Express) {
   app.use(express.static(distPath));
 
   // fall through to index.html if the file doesn't exist
+  // Always return 200 status for SPA - let client-side router handle route validation
   app.use("*", (req, res) => {
-    // Check if the route is valid and set appropriate status code
-    const statusCode = isValidRoute(req.originalUrl) ? 200 : 404;
-    res.status(statusCode).sendFile(path.resolve(distPath, "index.html"));
+    res.status(200).sendFile(path.resolve(distPath, "index.html"));
   });
 }
